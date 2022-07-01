@@ -1,0 +1,89 @@
+service: ${self:custom.config.project.name}-TODO
+
+provider:
+  provider:
+  name: aws
+  runtime: nodejs16.x
+  memorySize: 128
+  timeout: 30
+  stage: ${self:custom.config.AWS.stage}
+  region: ${self:custom.config.AWS.region}
+  # apiGateway:
+  #   restApiId:
+  #     Fn::ImportValue: ${self:custom.config.project.name}-RestApiId
+  #   restApiRootResourceId:
+  #     Fn::ImportValue: ${self:custom.config.project.name}-RootResourceId
+  # iamRoleStatements:
+
+  environment:
+    stage: ${self:custom.config.AWS.stage}
+    region: ${self:custom.config.AWS.region}
+    projectname: ${self:custom.config.project.name}    
+  
+custom:
+  # NOTE: Change this if you plan to use/deploy this template!
+  configStage: ${opt:stage, 'DEV'}
+  config: ${file(../../config/${self:custom.environments.${self:custom.configStage}}.yml)}
+
+  environments:
+    DEV: dev
+
+
+
+package:
+  exclude:
+    - models/**
+    - node_modules/**
+
+resources:
+  Resources:
+    # resources for
+  Outputs:
+    # Path Resources
+
+functions:
+  List:
+    handler: list.handler
+    name: ${self:service}-${self:provider.stage}-List
+    events:
+      - http:
+          method: GET
+          path: /todo/list
+          integration: lambda
+          authorizer: ${self:custom.authorizer}
+          cors: true
+
+          documentation:
+            summary: ""
+            description: ""
+            tags:
+              - list todos
+            requestHeaders:
+              -
+                name: "Authorization"
+                description: "Auth Header description"
+                required: true
+              -
+                name: "Content-Type"
+                description: "application/json"
+                required: true
+
+            methodResponses:
+              -
+                statusCode: '201'
+                description: "Response description"
+                responseHeaders:
+                  - name: "Content-Type"
+                    description: "application/json"
+                  - name: "Access-Control-Allow-Origin"
+                    description: "*"
+              - ${file(../../yml/method_responses/400.yml)}
+              - ${file(../../yml/method_responses/401.yml)}
+              - ${file(../../yml/method_responses/403.yml)}
+              - ${file(../../yml/method_responses/404.yml)}
+              - ${file(../../yml/method_responses/500.yml)}
+              - ${file(../../yml/method_responses/504.yml)}
+
+          response:
+            ${file(../../yml/response.yml)}
+  

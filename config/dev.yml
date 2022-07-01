@@ -1,0 +1,17 @@
+project:
+  #A service name should only contain alphanumeric (case sensitive) and hyphens.
+  #It should start with an alphabetic character and shouldn't exceed 128 characters.
+  name: HELLO-WORLD
+  domain: helloworld.com
+  frontURL: "https://dev.helloworld.com/"
+  secret: "helloworldxaa"
+  api: "https://dev-api.helloword.com"
+  mobileURL: "https://helloworld.page.link/Dev"
+
+AWS:
+  stage: DEV
+  region: us-east-1
+  accessKey: xxxxxxxxxx
+  secretKey: axaxaxaxax
+CDN:
+  domain: "https://dev-cdn.${self:custom.config.project.domain}"

@@ -1,0 +1,19 @@
+{
+  "name": "todo-app-api",
+  "version": "1.0.0",
+  "description": "Simple template for serverless applications api",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "sls deploy -v"
+  },
+  "keywords": [
+    "serverless",
+    "microservices",
+    "application",
+    "api"
+  ],
+  "author": "rabigautam",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {}
+}
