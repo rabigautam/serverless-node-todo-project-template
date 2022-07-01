@@ -18,8 +18,8 @@ provider:
   environment:
     stage: ${self:custom.config.AWS.stage}
     region: ${self:custom.config.AWS.region}
-    projectname: ${self:custom.config.project.name}    
-  
+    projectname: ${self:custom.config.project.name}
+
 custom:
   # NOTE: Change this if you plan to use/deploy this template!
   configStage: ${opt:stage, 'DEV'}
@@ -27,8 +27,6 @@ custom:
 
   environments:
     DEV: dev
-
-
 
 package:
   exclude:
@@ -59,18 +57,15 @@ functions:
             tags:
               - list todos
             requestHeaders:
-              -
-                name: "Authorization"
+              - name: "Authorization"
                 description: "Auth Header description"
                 required: true
-              -
-                name: "Content-Type"
+              - name: "Content-Type"
                 description: "application/json"
                 required: true
 
             methodResponses:
-              -
-                statusCode: '201'
+              - statusCode: "201"
                 description: "Response description"
                 responseHeaders:
                   - name: "Content-Type"
@@ -84,6 +79,4 @@ functions:
               - ${file(../../yml/method_responses/500.yml)}
               - ${file(../../yml/method_responses/504.yml)}
 
-          response:
-            ${file(../../yml/response.yml)}
-  
+          response: ${file(../../yml/response.yml)}
