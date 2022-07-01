@@ -1,0 +1,9 @@
+statusCode: "400"
+description: "Bad Request"
+responseHeaders:
+  - name: "Content-Type"
+    description: "application/json"
+  - name: "Access-Control-Allow-Origin"
+    description: "*"
+responseBody:
+  description: "Error 400 description"

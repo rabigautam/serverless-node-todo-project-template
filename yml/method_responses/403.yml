@@ -1,0 +1,9 @@
+statusCode: "403"
+description: "Forbidden"
+responseHeaders:
+  - name: "Content-Type"
+    description: "application/json"
+  - name: "Access-Control-Allow-Origin"
+    description: "*"
+responseBody:
+  description: "Error 403 description"

@@ -1,0 +1,9 @@
+statusCode: "500"
+description: "Internal Error"
+responseHeaders:
+  - name: "Content-Type"
+    description: "application/json"
+  - name: "Access-Control-Allow-Origin"
+    description: "*"
+responseBody:
+  description: "Error 500 description"

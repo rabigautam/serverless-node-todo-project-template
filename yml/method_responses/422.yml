@@ -1,0 +1,9 @@
+statusCode: "422"
+description: "Exceeded Limit"
+responseHeaders:
+  - name: "Content-Type"
+    description: "application/json"
+  - name: "Access-Control-Allow-Origin"
+    description: "*"
+responseBody:
+  description: "Error 422 description"

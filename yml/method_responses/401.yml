@@ -1,0 +1,9 @@
+statusCode: "401"
+description: "Unauthorized"
+responseHeaders:
+  - name: "Content-Type"
+    description: "application/json"
+  - name: "Access-Control-Allow-Origin"
+    description: "*"
+responseBody:
+  description: "Error 401 description"

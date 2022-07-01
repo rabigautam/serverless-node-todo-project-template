@@ -1,0 +1,17 @@
+statusCode:
+  200:
+    pattern: ''
+  400:
+    pattern: 'Error 400.*'
+  401:
+    pattern: 'Error 401.*'
+  403:
+    pattern: 'Error 403.*'
+  404:
+    pattern: 'Error 404.*'
+  422:
+    pattern: 'Error 422.*'
+  500:
+    pattern: 'Error 500.*'
+  504:
+    pattern: 'Error 504.*'
