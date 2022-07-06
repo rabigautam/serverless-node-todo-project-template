@@ -1,0 +1,7 @@
+{
+    "replace_commitUrlFormat_key": "\n https://us-east-2.console.aws.amazon.com/codesuite/codecommit/repositories/{{repository}}/commit/{{hash}}?region=us-east-2",
+    "commitUrlFormat": " ",
+    "types": [
+        {"type":"refac","section":"Refactor"}
+      ]
+}
